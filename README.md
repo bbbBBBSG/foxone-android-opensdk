@@ -47,12 +47,12 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
 
 |接口|参数|Response|说明|
 |---|---|---|---|
-|login|LoginRequestBody||登录|
+|login|LoginRequest||登录|
 |loginWithSMS|ValidatedRequest.ForLogin||短信验证码登录|
-|register|RegisterRequestBody||注册|
+|register|RegisterRequest||注册|
 |getAccountDetail|||获取登录用户详情|
 |modify|ModifyAccountRequest||修改用户信息|
-|resetPassword|ResetPasswordRequestBody||重置密码|
+|resetPassword|ResetPasswordRequest||重置密码|
 |bind|ValidatedRequest.ForChangeTelOrEmail||绑定用户手机号或者邮箱|
 |logout|||登出|
 
