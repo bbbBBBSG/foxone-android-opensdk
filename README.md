@@ -14,7 +14,7 @@ implementation 'com.fox.one:opensdk:0.0.1'
 > 在Application#onCreate()初始化FoxOneOpenSDK
  
 ```
-FoxOneOpenSDK.init(Context)
+FoxOneOpenSDK.init(Context, keySecret)
 ```
 
 * API接口使用
