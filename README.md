@@ -35,6 +35,7 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
                 })
 ```
 
+**`注意：API的具体使用情况可参考Demo`**
 ## 业务功能
 * 账号模块：支持用户注册登录，修改用户信息，修改密码等功能
 * 钱包模块：支持用户转入转出加密数字货币
