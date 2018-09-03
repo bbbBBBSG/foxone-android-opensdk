@@ -62,7 +62,9 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
 |getAllWalletInfo|||获取所有钱包信息|
 |getWalletInfo|assetID||获取指定钱包信息|
 |getAllSnapshots|||获取交易记录|
-|||||
+|withDraw|pingToken<br>WithDrawRequest||转账|
+|getWalletDepositCoins|||获取钱包支持的币种|
+|getFee|pinToken<br>assetId<br>publicKey<br>label||获取转账费用|
 
 * LuckyCoinAPI
 
