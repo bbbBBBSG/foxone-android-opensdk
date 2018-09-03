@@ -68,7 +68,18 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
 
 * LuckyCoinAPI
 
+|接口|参数|Response|说明|
+|---|---|---|---|
+|create|LuckyCoinRequest||创建新红包|
+|push|pinToken：<br>luckyCoinId：||发布红包|
+
 * PinAPI
+
+|接口|参数|Response|说明|
+|---|---|---|---|
+|setPin|PinRequest||设置用户的pin|
+|modifyPin|pinToken:<br>PinRequest:||修改用户pin码|
+|verifyPin|pinToken:<br>PinRequest:||验证用户的pin码|
 
 ## 混淆配置
 
