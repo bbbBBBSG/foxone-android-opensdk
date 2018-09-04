@@ -6,7 +6,7 @@
 * 依赖
 
 ```
-implementation 'com.fox.one:opensdk:0.0.1'
+implementation 'com.fox.one:opensdk:0.0.2'
 ```
 
 * 初始化
@@ -14,7 +14,19 @@ implementation 'com.fox.one:opensdk:0.0.1'
 > 在Application#onCreate()初始化FoxOneOpenSDK
  
 ```
-FoxOneOpenSDK.init(Context, keySecret)
+FoxOneOpenSDK.init(Context)
+```
+* 开启Debug模式
+
+```
+FoxOneOpenSDK.debugEnable(Boolean)
+```
+
+* 设置Token
+
+```
+//在用户登录状态下设置token, token用于API接口请求使用，无token或者token失效时，API接口会返回ResponseCode 401错误码（身份验证失败）
+FoxOneOpenSDK.token = '34tsr45trert4645643t'
 ```
 
 * API接口使用
@@ -63,26 +75,56 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
 |getAllWalletInfo|||获取所有钱包信息|
 |getWalletInfo|assetID||获取指定钱包信息|
 |getAllSnapshots|||获取交易记录|
-|withDraw|pingToken<br>WithDrawRequest||转账|
+|withDraw|pin<br>WithDrawRequest||转账|
 |getWalletDepositCoins|||获取钱包支持的币种|
-|getFee|pinToken<br>assetId<br>publicKey<br>label||获取转账费用|
+|getFee|pin<br>assetId<br>publicKey<br>label||获取转账费用|
 
 * LuckyCoinAPI
 
 |接口|参数|Response|说明|
 |---|---|---|---|
 |create|LuckyCoinRequest||创建新红包|
-|push|pinToken：<br>luckyCoinId：||发布红包|
+|push|pin：<br>luckyCoinId：||发布红包|
 
 * PinAPI
 
 |接口|参数|Response|说明|
 |---|---|---|---|
 |setPin|PinRequest||设置用户的pin|
-|modifyPin|pinToken:<br>PinRequest:||修改用户pin码|
-|verifyPin|pinToken:<br>PinRequest:||验证用户的pin码|
+|modifyPin|pin:<br>PinRequest:||修改用户pin码|
+|verifyPin|pin:<br>PinRequest:||验证用户的pin码|
 
-## 错误码
+* 短信验证码API：`SMSCodeHelper`
+> 通过该接口请求相应业务的短信验证码，包括如下业务
+
+```
+//激活验证码
+SMSCodeType.ACTIVATION,
+//重置密码验证码
+SMSCodeType.RESET_PASSWORD,
+//绑定账号验证码
+SMSCodeType.BIND,
+//短信登录验证码
+SMSCodeType.LOGIN
+
+```
+
+接口：
+
+|接口|参数|Response|说明|
+|---|---|---|---|
+|requestSMSCode|tel:<br>email:<br>captcha:图片验证码<br>smsCodeType:业务类型||请求短信验证码|
+
+
+## 通用错误码
+> 通用错误码指HTTP响应码(ResponseCode)，[参考](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
+
+|错误码|说明|
+|---|---|
+|401|无token或token失效|
+|||
+
+## 业务错误码
 服务端返回的业务数据结构如下：
 
 ```
