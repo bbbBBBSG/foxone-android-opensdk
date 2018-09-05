@@ -6,7 +6,7 @@
 * 依赖
 
 ```
-implementation 'com.fox.one:opensdk:0.0.2'
+implementation 'com.fox.one:opensdk:0.0.3'
 ```
 
 * 初始化
@@ -14,7 +14,8 @@ implementation 'com.fox.one:opensdk:0.0.2'
 > 在Application#onCreate()初始化FoxOneOpenSDK
  
 ```
-FoxOneOpenSDK.init(Context)
+//appId为接入方申请的appId
+FoxOneOpenSDK.init(Context, appId)
 ```
 * 开启Debug模式
 
