@@ -1,6 +1,7 @@
 package com.fox.one.opensdk.demo
 
 import android.app.Application
+import com.fox.one.base.FoxRuntime
 import com.fox.one.opensdk.FoxOneOpenSDK
 
 /**
@@ -14,6 +15,6 @@ class DemoApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        FoxOneOpenSDK.init(this)
+        FoxOneOpenSDK.init(this, "123456")
     }
 }
