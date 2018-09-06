@@ -6,7 +6,7 @@
 * 依赖
 
 ```
-implementation 'com.fox.one:opensdk:0.0.5'
+implementation 'com.fox.one:opensdk:0.0.6'
 ```
 
 * 初始化
