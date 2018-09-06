@@ -6,7 +6,7 @@
 * 依赖
 
 ```
-implementation 'com.fox.one:opensdk:0.0.6'
+implementation 'com.fox.one:opensdk:0.0.7'
 ```
 
 * 初始化
@@ -77,8 +77,10 @@ APILoader.load(AccountAPI::class.java).login(LoginRequestBody(tel, null, passwor
 |getWalletInfo|assetID||获取指定钱包信息|
 |getAllSnapshots|||获取交易记录|
 |withDraw|pin<br>WithDrawRequest||转账|
-|getWalletDepositCoins|||获取钱包支持的币种|
+|getDepositSupportedCoins|||获取支持转账的数字货币|
 |getFee|pin<br>assetId<br>publicKey<br>label||获取转账费用|
+|hideWalletAsset|IdsRequest||隐藏指定钱包资产ID的钱包资产|
+|showWalletAsset|IdsRequest||移除指定钱包资产ID的隐藏状态|
 
 * LuckyCoinAPI
 
